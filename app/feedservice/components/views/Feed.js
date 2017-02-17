@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   },
   feed: {
     flex: 1,
-    marginTop:20,
+    margin:10,
     height:null,
     width:null,
     backgroundColor: '#F5FC33'

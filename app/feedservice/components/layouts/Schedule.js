@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
-import { Feeds}  from '../containers'
-
-export default class Home extends Component {
+export default class Schedule extends Component {
   
 
   render() {
     return (
       <View style={styles.container}>
         
-        <Feeds />
+        <Text> Schedule Item exploded</Text>
       </View>
     );
   }
@@ -26,4 +24,3 @@ const styles = StyleSheet.create({
     paddingBottom:40,
   },
 });
-

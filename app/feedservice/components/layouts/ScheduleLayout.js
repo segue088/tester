@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
-export default class Schedule extends Component {
+export default class ScheduleLayout extends Component {
   
 
   render() {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
-export default class Feed extends Component {
+export default class FeedLayout extends Component {
   
 
   render() {

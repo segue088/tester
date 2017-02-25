@@ -1,10 +1,11 @@
 import Feeds from './Feeds'
 import NavBar from './NavBar'
-import StatusBar from './StatusBar'
+import TopNav from './TopNav'
 
 export {
 
 	Feeds,
 	NavBar,
-	StatusBar
+	TopNav
 }
+

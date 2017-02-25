@@ -1,39 +1,33 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
+import { connect } from 'react-redux'
 import APIManager from '../../utils/APIManager'
 import { Feed } from '../views'
-import { connect } from 'react-redux'
 import actions from '../../reducer/actions'
 
 class Feeds extends Component {
   
-  constructor(){
-    super()
-
-    this.state = {  
-
-      feed: {
-        user: 'Kila Bongo',
-        feed: 'Patient just took phynl injection scheduled for 3:30',
-        sender: 'Nurse Venerate',      
-        timestamp: '23-04-2017'  
-      }
-    }
+  componentDidMount(){  
+    this.props.loadFeeds(2)
   }
 
-  componentDidMount(){
-
-    this.props.loadFeeds(null)
+  explodeFeed(){
+    this.props.updateRoute({
+      navigator: this.props.navigator, 
+      route: {
+        id:'search', 
+        name: 'search'
+      }
+    })
     
-
   }
 
   render() {
     return (
-      <View>
-        <Feed feed = {this.state.feed}/>
-        <Feed feed = {this.state.feed}/>
-        <Feed feed = {this.state.feed}/>
+      <View style={styles.container}>
+        <Feed feed={this.props.feedservice.feeds} onTouch={this.explodeFeed.bind(this)}/>
+        <Feed feed = {this.props.feedservice.feeds} onTouch={this.explodeFeed.bind(this)}/>
+        <Feed feed = {this.props.feedservice.feeds} onTouch={this.explodeFeed.bind(this)}/>
         
       </View>
     );
@@ -42,14 +36,27 @@ class Feeds extends Component {
 
 const stateToProps = (state) => {
   return {
-    feed: state.feed
+    feedservice: state.feedservice,
   }
 }
 
 const dispatchToProps = (dispatch) => {
   return {
-    loadFeeds: (params) => dispatch(actions.loadFeeds(params))
+    loadFeeds: (params) => dispatch(actions.loadFeeds(params)),
+    updateRoute: (params) => dispatch(actions.updateRoute(params)),
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+    paddingTop:40,
+    paddingBottom:40,
+  },
+})
+
 
 export default connect(stateToProps, dispatchToProps)(Feeds)

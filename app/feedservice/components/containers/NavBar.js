@@ -25,10 +25,10 @@ export default class NavBar extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity >
+        <TouchableOpacity onPress = {() => this.props.navigator.replace({id:'feeds'})}>
           <Text color ="#888" size={25} style={{margin:10}} >Feeds </Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress = {() => this.props.navigator.replace({id:'schedule'})}>
+        <TouchableOpacity onPress = {() => this.props.navigator.replace({id:'schedules'})}>
           <Text color ="#888" size={25} style={{margin:10}} >Schedule </Text>
         </TouchableOpacity>
         <TouchableOpacity >

@@ -2,35 +2,30 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
-  View
+  TouchableOpacity
 } from 'react-native';
 
 export default class Feed extends Component {
 
-  constructor(){
-    super()
-  }
+    explodeFeed(event){
+      this.props.onTouch()
+    }
 
-  render() {
+   render() {
     return (
 
-      <View style={styles.feed}>
-        <Text>{this.props.feed.feed}</Text>
-        <Text>{this.props.feed.sender}</Text>
-        <Text>{this.props.feed.user}</Text><Text>{this.props.feed.timestamp}</Text>
-      </View>
+        <TouchableOpacity style={styles.container} onPress={this.explodeFeed.bind(this)}>
+          <Text>{this.props.feed.feed}</Text>
+          <Text>{this.props.feed.sender}</Text>
+          <Text>{this.props.feed.user}</Text><Text>{this.props.feed.timestamp}</Text>
+        </TouchableOpacity>
+        
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  feed: {
     flex: 1,
     margin:10,
     height:null,
